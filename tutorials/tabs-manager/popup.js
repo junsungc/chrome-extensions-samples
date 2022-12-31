@@ -54,14 +54,25 @@ const tabObj = tabs.reduce((acc, cur, idx) => {
 }, {})
 document.querySelector("ul").append(...elements);
 
-const button = document.querySelector("button");
-button.addEventListener("click", async () => {
+const groupButton = document.querySelector("#group");
+groupButton.addEventListener("click", async () => {
   const keys = Object.keys(tabObj)
   keys.map(async key => {
     if (tabObj[key].length > 1) {
       const tabIds = tabObj[key]
       const group = await chrome.tabs.group({ tabIds });
       await chrome.tabGroups.update(group, { title: key });
+    }
+  })
+});
+
+const unGroupButton = document.querySelector("#ungroup");
+unGroupButton.addEventListener("click", async () => {
+  const keys = Object.keys(tabObj)
+  keys.map(async key => {
+    if (tabObj[key].length > 1) {
+      const tabIds = tabObj[key]
+      chrome.tabs.ungroup(tabIds);
     }
   })
 });

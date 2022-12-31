@@ -34,6 +34,10 @@ li:nth-child(even) {
   background: #ffffff;
 }
 
+#container {
+  display : flex;
+  justify-content : space-around;
+}
 h3,
 p {
   margin: 0;
