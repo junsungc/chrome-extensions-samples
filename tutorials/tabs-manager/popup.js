@@ -14,9 +14,11 @@
 
 const tabs = await chrome.tabs.query({});
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
-const collator = new Intl.Collator();
-tabs.sort((a, b) => collator.compare(a.index, b.index));
+tabs.sort((a, b) => {
+  if (a.index > b.index) return 1;
+  if (a.index < b.index) return -1;
+  return 0
+});
 
 const template = document.getElementById("li_template");
 const elements = new Set();
