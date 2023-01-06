@@ -18,17 +18,27 @@
     </li>
   </template>
 
-  <h1>Google Dev Docs</h1>
-  <div id="container">
-    <button id="group">Group Tabs</button>
-    <button id="ungroup">UnGroup Tabs</button>
+  <div id="tabs">
+
+    <div id="top__container">
+      <div class="tabs__btn">Start</div>
+      <div class="tabs__btn">Group</div>
+    </div>
+
+    <div class="tabs__content">
+      <button id="start">Start</button>
+    </div>
+    <div class="tabs__content">
+      <div id="container">
+        <button id="group">Group Tabs</button>
+        <button id="ungroup">UnGroup Tabs</button>
+      </div>
+      <ul id="li_item"></ul>
+    </div>
   </div>
-  <div id="container">
-    <button id="start">Start</button>
-  </div>
-  <ul></ul>
 
   <script src="./popup.js" type="module"></script>
+  <script src="./tab.js" type="module"></script>
 </body>
 
 </html>

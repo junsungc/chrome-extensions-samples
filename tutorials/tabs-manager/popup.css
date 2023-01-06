@@ -18,6 +18,42 @@ body {
   width: 20rem;
 }
 
+#top__container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.clicked {
+  color: gold;
+}
+
+.tabs__btn {
+  border: 1px solid #c3c3c3;
+  padding: 1rem;
+  flex-grow: 1;
+  text-align: center;
+  margin: 1rem;
+}
+
+
+.tabs__content #container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tabs__content #start {
+  width: 100px;
+  margin: auto;
+  display: block;
+}
+
+.tabs__content #container input {
+  flex-grow: 1;
+}
+
 ul {
   list-style-type: none;
   padding-inline-start: 0;
@@ -27,17 +63,16 @@ ul {
 li {
   padding: 0.25rem;
 }
+
 li:nth-child(odd) {
   background: #80808030;
 }
+
 li:nth-child(even) {
   background: #ffffff;
 }
 
-#container {
-  display : flex;
-  justify-content : space-around;
-}
+
 h3,
 p {
   margin: 0;
