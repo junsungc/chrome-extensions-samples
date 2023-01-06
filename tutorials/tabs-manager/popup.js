@@ -76,3 +76,8 @@ unGroupButton.addEventListener("click", async () => {
     }
   })
 });
+
+const startButton = document.querySelector("#start");
+startButton.addEventListener("click", async () => {
+  chrome.windows.create({"focused":true, "url":["https://www.naver.com", "https://www.daum.net"]})
+});
