@@ -42,12 +42,17 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .tabs__content #start {
   width: 100px;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: block;
+
 }
 
 .tabs__content #container input {

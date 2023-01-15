@@ -9,11 +9,18 @@
 </head>
 
 <body>
-  <template id="li_template">
+  <template id="group_li_template">
     <li>
       <a>
         <h3 class="title">Tab Title</h3>
         <p class="pathname">Tab Pathname</p>
+      </a>
+    </li>
+  </template>
+  <template id="start_li_template">
+    <li>
+      <a>
+        <h3 class="url">Start url</h3>
       </a>
     </li>
   </template>
@@ -27,13 +34,18 @@
 
     <div class="tabs__content">
       <button id="start">Start</button>
+      <div id="container">
+        <input type="text" id="startUrl">
+        <button id="setStart">SetStartPage</button>
+      </div>
+      <ul id="start_li_item"></ul>
     </div>
     <div class="tabs__content">
       <div id="container">
         <button id="group">Group Tabs</button>
         <button id="ungroup">UnGroup Tabs</button>
       </div>
-      <ul id="li_item"></ul>
+      <ul id="group_li_item"></ul>
     </div>
   </div>
 

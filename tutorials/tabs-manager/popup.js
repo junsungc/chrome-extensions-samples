@@ -20,7 +20,7 @@ tabs.sort((a, b) => {
   return 0
 });
 
-const template = document.getElementById("li_template");
+const template = document.getElementById("group_li_template");
 const elements = new Set();
 for (const tab of tabs) {
   if (tab.url) {
@@ -38,8 +38,10 @@ for (const tab of tabs) {
     });
 
     elements.add(element);
+    document.querySelector("#group_li_item").append(...elements);
   }
 }
+
 
 const tabObj = tabs.reduce((acc, cur, idx) => {
   if (cur.url) {
@@ -53,7 +55,6 @@ const tabObj = tabs.reduce((acc, cur, idx) => {
   return acc;
 }, {})
 
-document.querySelector("#li_item").append(...elements);
 
 const groupButton = document.querySelector("#group");
 groupButton.addEventListener("click", async () => {
@@ -76,9 +77,4 @@ unGroupButton.addEventListener("click", async () => {
       chrome.tabs.ungroup(tabIds);
     }
   })
-});
-
-const startButton = document.querySelector("#start");
-startButton.addEventListener("click", async () => {
-  chrome.windows.create({ "focused": true, "url": ["https://www.naver.com", "https://www.daum.net"] })
 });
