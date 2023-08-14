@@ -12,12 +12,15 @@ const template = document.getElementById("start_li_template");
 function setUrlElement(url) {
   const element = template.content.firstElementChild.cloneNode(true);
   element.querySelector(".url").textContent = url;
-  element.querySelector("a").addEventListener("click", (event) => {
+
+  //delete-button에 url 리스트 삭제 리스너 등록
+  element.querySelector(".delete-button").addEventListener("click", (event) => {
     chrome.storage.local.get(['urls'], async function (result) {
       let removedResult = []
       for (let i = 0; i < result.urls.length; i++) {
-        if (result.urls[i] !== event.target.innerText)
+        if (result.urls[i] !== url) {
           removedResult.push(result.urls[i])
+        }
       }
       await chrome.storage.local.set({ urls: removedResult });
       window.location.reload();
@@ -28,17 +31,18 @@ function setUrlElement(url) {
 
 setStartBtn.addEventListener("click", async () => {
   let inputValue = document.getElementById('startUrl').value
-
-  chrome.storage.local.get(['urls'], function (result) {
-    let urlList = []
-    if (result.urls) {
-      urlList = result.urls
-    }
-    urlList.push(inputValue)
-    setUrlElement(inputValue)
-    chrome.storage.local.set({ urls: urlList });
-  });
-  document.getElementById('startUrl').value = ''
+  if (inputValue != '') {
+    chrome.storage.local.get(['urls'], function (result) {
+      let urlList = []
+      if (result.urls) {
+        urlList = result.urls
+      }
+      urlList.push(inputValue)
+      setUrlElement(inputValue)
+      chrome.storage.local.set({ urls: urlList });
+    });
+    document.getElementById('startUrl').value = ''
+  }
 });
 
 startButton.addEventListener("click", async () => {

@@ -31,12 +31,26 @@ body {
 
 .tabs__btn {
   border: 1px solid #c3c3c3;
-  padding: 1rem;
+  padding: 1rem 0rem;
   flex-grow: 1;
   text-align: center;
-  margin: 1rem;
 }
 
+.url-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.delete-button {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.url-container:hover .delete-button {
+  visibility: visible;
+}
 
 .tabs__content #container {
   display: flex;

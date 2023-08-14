@@ -42,7 +42,8 @@ for (const tab of tabs) {
   }
 }
 
-
+// hostname이 같은 tab들을 그룹화하기 위해 
+// reduce함수를 이용하여 key(url) : value(tab.id)를 가진 객체를 생성
 const tabObj = tabs.reduce((acc, cur, idx) => {
   if (cur.url) {
     const tabUrl = new URL(cur.url).hostname
@@ -55,7 +56,8 @@ const tabObj = tabs.reduce((acc, cur, idx) => {
   return acc;
 }, {})
 
-
+// 분류된 tabObj를 이용하여 탭 그룹화 진행
+// 2개 이상의 그룹만 그룹화 되도록 함
 const groupButton = document.querySelector("#group");
 groupButton.addEventListener("click", async () => {
   const keys = Object.keys(tabObj)
@@ -68,6 +70,7 @@ groupButton.addEventListener("click", async () => {
   })
 });
 
+// ungroup 버튼 클릭 시 tabObj를 순회하며 chrome.tabs.ungroup() 
 const unGroupButton = document.querySelector("#ungroup");
 unGroupButton.addEventListener("click", async () => {
   const keys = Object.keys(tabObj)

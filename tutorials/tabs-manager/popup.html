@@ -20,7 +20,10 @@
   <template id="start_li_template">
     <li>
       <a>
-        <h3 class="url">Start url</h3>
+        <div class="url-container">
+          <h3 class="url">Start url</h3>
+          <span class="delete-button">X</span>
+        </div>
       </a>
     </li>
   </template>
@@ -28,16 +31,18 @@
   <div id="tabs">
 
     <div id="top__container">
-      <div class="tabs__btn">Start</div>
-      <div class="tabs__btn">Group</div>
+      <div class="tabs__btn">시작 설정</div>
+      <div class="tabs__btn">탭 그룹화</div>
     </div>
 
+    <hr />
     <div class="tabs__content">
       <button id="start">Start</button>
       <div id="container">
         <input type="text" id="startUrl">
         <button id="setStart">SetStartPage</button>
       </div>
+      <hr />
       <ul id="start_li_item"></ul>
     </div>
     <div class="tabs__content">
@@ -45,6 +50,7 @@
         <button id="group">Group Tabs</button>
         <button id="ungroup">UnGroup Tabs</button>
       </div>
+      <hr />
       <ul id="group_li_item"></ul>
     </div>
   </div>
